@@ -22,19 +22,20 @@ describe('Test POST request', () => {
         
         cy.request(requestObject).then(res => {
             let {status, body} = res
-            expect(status).to.eq(201, 'Status is not 201')
+            expect(status).to.eq(201, 'verifying Response header')
 
             // cy.log(JSON.stringify(res))
             let {title, userId, id} = body
             let responseBody = body.body
             
             // Verification
-            expect(id).to.eq(101, 'id is not correct')
-            expect(userId).to.eq(requestBody.userId, 'userid is not correct')
-            expect(title).to.eq(requestBody.title, 'title is not correct')
-            expect(responseBody).to.eq(requestBody.body, 'body is not correct')
+            expect(id).to.eq(101, 'verifying id')
+            expect(userId).to.eq(requestBody.userId, 'verifying userid')
+            expect(title).to.eq(requestBody.title, 'verifying title')
+            expect(responseBody).to.eq(requestBody.body, 'verifying body')
 
         })
+        
     });
 
     afterEach(() => {
